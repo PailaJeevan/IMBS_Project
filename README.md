@@ -140,7 +140,7 @@ The system can generate business insights with:\
 👨‍💻 **Developer:** Paila Jeevan
 📧 **Email:** pailajeevan21@gmail.com
 🌐 **GitHub:**
-[github.com/your-username](https://github.com/your-username)
+(https://github.com/PailaJeevan)
 
 💡 Feel free to fork, contribute, or drop a message if you have ideas to
 improve this project!

@@ -24,12 +24,12 @@ required!
 
 ## ✨ Features at a Glance
 
-✔️ Add, update, search & delete products\
-✔️ Manage customer orders with stock validation\
-✔️ Auto-update stock after purchase\
-✔️ Apply discounts to orders (optional)\
-✔️ Generate clean text-based bills (`.txt` / `.csv`)\
-✔️ Track daily sales performance\
+✔️ Add, update, search & delete products
+✔️ Manage customer orders with stock validation
+✔️ Auto-update stock after purchase
+✔️ Apply discounts to orders (optional)
+✔️ Generate clean text-based bills (`.txt` / `.csv`)
+✔️ Track daily sales performance
 ✔️ Monitor low-stock products
 
 ------------------------------------------------------------------------
@@ -68,9 +68,9 @@ order processing, and report generation.
 
 ## 🧾 Sample Workflow
 
-1.  **Add Products** → Add items to inventory\
-2.  **Create Order** → Add items to cart → Confirm purchase\
-3.  **Generate Bill** → Option to save as `.txt` or `.csv`\
+1.  **Add Products** → Add items to inventory
+2.  **Create Order** → Add items to cart → Confirm purchase
+3.  **Generate Bill** → Option to save as `.txt` or `.csv`
 4.  **Check Reports** → View sales and low-stock alerts
 
 ------------------------------------------------------------------------
@@ -97,54 +97,54 @@ order processing, and report generation.
 
 ### 🔹 Product Management
 
-This module allows the admin to manage inventory efficiently.\
-Functions include:\
-- Adding new products with ID, name, price, and stock quantity\
-- Updating existing product details\
-- Deleting products no longer available\
-- Searching by ID or name\
+This module allows the admin to manage inventory efficiently.
+Functions include:
+- Adding new products with ID, name, price, and stock quantity
+- Updating existing product details
+- Deleting products no longer available
+- Searching by ID or name
 - Viewing all available products in the inventory
 
 ### 🔹 Order Processing
 
-This module handles customer purchases.\
-Functions include:\
-- Adding products to a cart with quantity validation\
-- Removing items from the cart\
-- Calculating totals with optional discounts\
+This module handles customer purchases.
+Functions include:
+- Adding products to a cart with quantity validation
+- Removing items from the cart
+- Calculating totals with optional discounts
 - Auto-updating stock once the order is processed
 
 ### 🔹 Billing
 
-After order confirmation, a **bill/invoice** is generated.\
-- Includes Order ID, Date/Time, Item details, and Total amount\
-- Option to save bill in `.txt` or `.csv` format\
+After order confirmation, a **bill/invoice** is generated.
+- Includes Order ID, Date/Time, Item details, and Total amount
+- Option to save bill in `.txt` or `.csv` format
 - Stored under the `bills/` directory for future reference
 
 ### 🔹 Reports
 
-The system can generate business insights with:\
-- **Daily Sales Report** → Orders, items sold, and total sales amount\
+The system can generate business insights with:
+- **Daily Sales Report** → Orders, items sold, and total sales amount
 - **Low Stock Report** → Products below a specified threshold
 
 ------------------------------------------------------------------------
 
 ## ✅ Key Deliverables
 
--   Inventory CRUD operations\
--   Order management & billing system\
--   Report generation (sales & stock)\
--   File-based persistence with CSV\
+-   Inventory CRUD operations
+-   Order management & billing system
+-   Report generation (sales & stock)
+-   File-based persistence with CSV
 -   Console-based user interface
 
 ------------------------------------------------------------------------
 
 ## 📩 Contact
 
-👨‍💻 **Developer:** Paila Jeevan
-📧 **Email:** pailajeevan21@gmail.com
-🌐 **GitHub:**
-(https://github.com/PailaJeevan)
+- 👨‍💻 **Developer:** Paila Jeevan
+- 📧 **Email:** pailajeevan21@gmail.com
+- 🌐 **GitHub:**
+https://github.com/PailaJeevan
 
 💡 Feel free to fork, contribute, or drop a message if you have ideas to
 improve this project!

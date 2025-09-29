@@ -34,11 +34,15 @@ required!
 
 ------------------------------------------------------------------------
 
-## 🛠️ Requirements
+# 📋 Requirements
 
--   **Python 3.7+**\
--   Works on **Windows / Linux / macOS**\
--   No extra dependencies (Standard Library only!)
+This project uses only the **Python Standard Library**.  
+No external dependencies are required.  
+
+## 🛠️ Runtime Requirement
+- Python **3.7+**
+
+---
 
 If you want to list requirements in a file, create a `requirements.txt`:
 

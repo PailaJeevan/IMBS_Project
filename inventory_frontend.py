@@ -1,5 +1,6 @@
 from inventory_backend import InventoryManager, OrderManager
 import datetime
+from fpdf import FPDF
 
 class InventoryApp:
     def __init__(self):
@@ -261,8 +262,11 @@ class InventoryApp:
         date_str = input("Enter date for report (YYYY-MM-DD) or leave blank for today: ")
         
         try:
-            date = datetime.datetime.strptime(date_str, "%Y-%m-%d").date() if date_str else datetime.date.today()
-        except ValueError:
+            if date_str:
+                date = datetime.datetime.strptime(str(date_str), "%Y-%m-%d").date()
+            else:
+                date = datetime.date.today()
+        except Exception:
             print("Invalid date format. Please use YYYY-MM-DD.")
             return
         
@@ -272,6 +276,29 @@ class InventoryApp:
         print(f"Total Orders: {report['num_orders']}")
         print(f"Total Items Sold: {report['total_items']}")
         print(f"Total Sales Amount: {report['total_sales']:.2f}")
+
+        # Automatically save as CSV
+        import csv
+        csv_filename = f"daily_sales_report_{date}.csv"
+        with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["Date", "Total Orders", "Total Items Sold", "Total Sales Amount"])
+            writer.writerow([date, report['num_orders'], report['total_items'], f"{report['total_sales']:.2f}"])
+        print(f"CSV saved as {csv_filename}")
+
+        save_pdf = input("Save report as PDF? (y/n): ").lower()
+        if save_pdf == 'y':
+            pdf = FPDF()
+            pdf.add_page()
+            pdf.set_font("Arial", size=12)
+            pdf.cell(200, 10, txt=f"Daily Sales Report for {date}", ln=True, align='C')
+            pdf.ln(10)
+            pdf.cell(200, 10, txt=f"Total Orders: {report['num_orders']}", ln=True)
+            pdf.cell(200, 10, txt=f"Total Items Sold: {report['total_items']}", ln=True)
+            pdf.cell(200, 10, txt=f"Total Sales Amount: {report['total_sales']:.2f}", ln=True)
+            filename = f"daily_sales_report_{date}.pdf"
+            pdf.output(filename)
+            print(f"PDF saved as {filename}")
 
     def low_stock_report(self):
         threshold = input("Enter low stock threshold (default 5): ") or "5"
@@ -293,6 +320,34 @@ class InventoryApp:
         print("----------------------------------------")
         for product in low_stock:
             print(f"{product.product_id}\t{product.name[:15]}\t{product.quantity}")
+
+        # Automatically save as CSV
+        import csv
+        csv_filename = f"low_stock_report_{datetime.date.today()}.csv"
+        with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["Product ID", "Name", "Stock"])
+            for product in low_stock:
+                writer.writerow([product.product_id, product.name, product.quantity])
+        print(f"CSV saved as {csv_filename}")
+
+        save_pdf = input("Save report as PDF? (y/n): ").lower()
+        if save_pdf == 'y':
+            pdf = FPDF()
+            pdf.add_page()
+            pdf.set_font("Arial", size=12)
+            pdf.cell(200, 10, txt=f"Low Stock Report (Below {threshold})", ln=True, align='C')
+            pdf.ln(10)
+            pdf.cell(60, 10, txt="ID", border=1)
+            pdf.cell(80, 10, txt="Name", border=1)
+            pdf.cell(40, 10, txt="Stock", border=1, ln=True)
+            for product in low_stock:
+                pdf.cell(60, 10, txt=str(product.product_id), border=1)
+                pdf.cell(80, 10, txt=product.name[:15], border=1)
+                pdf.cell(40, 10, txt=str(product.quantity), border=1, ln=True)
+            filename = f"low_stock_report_{datetime.date.today()}.pdf"
+            pdf.output(filename)
+            print(f"PDF saved as {filename}")
 
     def run(self):
         while True:
